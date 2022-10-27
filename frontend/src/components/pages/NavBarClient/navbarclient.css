@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+.navBarClient {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #10a8a9;
+}
+
+.client_home_logo {
+    margin-left: 80px;
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Acme', sans-serif;
+}
+
+.nav_link_row {
+    width: 300px;
+    margin-right: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  
+    align-items: center;
+    height: 100%;
+}
+
+.nav_link {
+    color: #fff;
+    font-weight: 900;
+    font-size: 23px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.nav_link:hover {
+    color: #10a8a9;
+    font-weight: 900;
+    font-size: 23px;
+    background-color: #fff;
+
+}
