@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,104 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+
+} */
+
+body {
+  background-color: #ecf2f5;
+}
+
+.topbar-font-color {
+  font-size: 13px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.primary-background {
+  background-color: #348cd4;
+}
+
+.font-color {
+  color: #6e768e;
+  font-size: 13px;
+}
+
+.font-active {
+  color: #348cd4;
+}
+
+#wrapper {
+  position: absolute;
+  margin-top: 30px;
+  top: 60px;
+  bottom: 0;
+}
+.id_grid_system {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+.left_bar {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.right_bar {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+#content-wrapper {
+  height: 100%;
+  width: 100%;
+  padding: 0 20px 20px 20px;
+  overflow-y: auto;
+}
+
+#content-wrapper .row {
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.204);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(136, 136, 136, 0.492);
+}
+
+:root {
+  --toastify-color-progress-light: linear-gradient(
+    to right,
+    #4cd964,
+    #5ac8fa,
+    #007aff,
+    #34aadc,
+    #5856d6,
+    #ff2d55
+  );
 }

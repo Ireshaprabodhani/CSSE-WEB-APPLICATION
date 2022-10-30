@@ -1,0 +1,281 @@
+.dashboard {
+  width: 100vw;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.603);
+}
+
+.dashboardContainer {
+  border-left: 1px solid rgba(0, 0, 0, 0.13);
+  background-color: rgba(255, 255, 255, 0.763);
+  padding: 1rem 0;
+}
+
+.dashboardContainer > h1 {
+  color: rgba(0, 0, 0, 0.733);
+  font: 300 2rem "Roboto";
+  text-align: center;
+  width: 50%;
+  padding: 1.5rem;
+  margin: auto;
+}
+
+.dashboardSummary {
+  margin: 2rem 0;
+}
+
+.dashboardSummary > div {
+  display: flex;
+  background-color: white;
+  justify-content: center;
+}
+.dashboardSummary > div > p {
+  background-color: #3bb77e;
+  color: white;
+  font: 300 1.3rem "Roboto";
+  text-align: center;
+  padding: 1.5rem;
+  width: 100%;
+  margin: 0 2rem;
+}
+.dashboardSummaryBox2 > a {
+  color: rgb(0, 0, 0);
+  font: 300 2rem "Roboto";
+  text-align: center;
+  background-color: rgb(255, 233, 174);
+  text-decoration: none;
+  padding: 1.5rem;
+  width: 10vmax;
+  height: 10vmax;
+  margin: 2rem;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dashboardSummaryBox2 > a:first-child {
+  background-color: rgb(255, 110, 110);
+  color: rgb(255, 255, 255);
+}
+
+.dashboardSummaryBox2 > a:last-child {
+  background-color: rgb(51, 51, 51);
+  color: rgb(255, 255, 255);
+}
+
+.lineChart {
+  width: 80%;
+  margin: auto;
+}
+
+.doughnutChart {
+  width: 30vmax;
+  margin: auto;
+}
+
+/* widget small */
+.featured {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.featuredItem {
+  flex: 1;
+  margin: 0px 20px;
+  padding: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 15px -10px #000000;
+  box-shadow: 0px 0px 15px -10px #000000;
+}
+
+.featuredTitle {
+  font-size: 20px;
+}
+
+.featuredSalesContainer {
+  margin: 10px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.faeaturedMoney {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.faeaturedMoneyRate {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.featuredIcon {
+  font-style: 14px;
+  margin-left: 5px;
+  color: green;
+}
+
+.featuredIcon.negative {
+  color: red;
+}
+
+.featuredSab {
+  font-size: 15px;
+  color: gray;
+}
+
+.chart {
+  margin: 20px;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px #000000;
+  box-shadow: 0px 0px 15px -10px #000000;
+  margin-top: 30px;
+}
+.chartTitle {
+  margin-bottom: 20px;
+}
+
+.widgetlg {
+  flex: 2;
+  -webkit-box-shadow: 0px 0px 15px -10px #000000;
+  box-shadow: 0px 0px 15px -10px #000000;
+  padding: 20px;
+}
+
+.widgetLgTitle {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.widgetLgTable {
+  width: 100%;
+  border-spacing: 20px;
+}
+
+.widgetLgTh {
+  text-align: left;
+}
+
+.widgetLgUser {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.widgetLgImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+.widgetLgDate,
+.widgetLgAmount {
+  font-weight: 100;
+  color: rgba(211, 211, 211, 0.881);
+}
+
+.widgetLgButton {
+  padding: 5px 7px;
+  border: none;
+  border-radius: 10px;
+}
+
+.widgetLgButton.Approved {
+  background-color: #e5faf2;
+  color: #3bb077;
+}
+
+.widgetLgButton.Declined {
+  background-color: #fff0f1;
+  color: #d95807;
+}
+
+.widgetLgButton.Pending {
+  background-color: #ebf1fe;
+  color: #2a7ade;
+}
+
+.widgetsm {
+  flex: 1;
+  -webkit-box-shadow: 0px 0px 15px -10px #000000;
+  box-shadow: 0px 0px 15px -10px #000000;
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.widgetSmTitle {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.widgetSmImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.widgetSmList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.widgetSmListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0px;
+}
+
+.widgetSmUser {
+  display: flex;
+  flex-direction: column;
+}
+.widgetSmUserName {
+  font-weight: 600;
+}
+.widgetSmUserType {
+  font-weight: 200;
+}
+
+.widgetSmButton {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  padding: 7px 10px;
+  background-color: #eeeef7;
+  color: #555;
+  cursor: pointer;
+}
+
+.widgetSmIcon {
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboardContainer {
+    border-left: none;
+  }
+
+  .dashboardSummary > div > p {
+    margin: 0;
+  }
+
+  .dashboardSummaryBox2 > a {
+    padding: 0.5rem;
+    margin: 1rem;
+    font: 300 0.9rem "Roboto";
+  }
+}
