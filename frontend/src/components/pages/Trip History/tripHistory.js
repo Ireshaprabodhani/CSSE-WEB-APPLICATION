@@ -4,6 +4,7 @@ import axios from "axios";
 
 
 
+
 const initialState = {
   search_date: "",
   HistoryTrip: [],
@@ -86,60 +87,50 @@ class tripHistory extends Component {
 
     return (
       <>
-        <div>
-          <div className="v328_22">
-            <div className="v328_23" />
-            <div className="v328_24" />
-            <span className="v328_25">Links</span>
-            <span className="v328_26">Travel Buddy is here to help you to make your travel desires easier more than ever</span>
-            <span className="v328_27">&gt; FAQ</span>
-            <span className="v328_28">&gt; Help</span>
-            <span className="v328_29">travelbuddy@gmail.com
-              072 345 55 66</span>
-            <span className="v328_30">About Us</span>
-            <span className="v328_31">Home</span>
-            <a href="/"><span className="v328_32">Payments</span></a>
-            <a href="/TimeTable"><span className="v328_33">Timetable</span></a>
-            <a href="/tripHistory"><span className="v328_34">Trip History</span></a>
-            <span className="v328_35">Contact Us</span>
-            <span className="v328_36">About Us</span>
-            <span className="v328_37">LogOut     |    Profile</span><span className="v328_38">Travel Buddy</span>
-            <div className="v328_39" />
-            <div className="v328_40" />
-            <div className="name" /><div className="name" />
-            <div className="name" /><span className="v328_44">My Trips</span>
-            <span className="v328_45">{this.state.trip_id}</span>
-            <span className="v328_46">{this.state.date}</span>
-            <span className="v328_47">  {this.state.route}</span>
-            <span className="v328_48">Home&gt;Trip History</span>
-            <span className="v328_49">Total Fee   : </span>
-            <span className="v328_50">Top Ups at the stations   : </span>
-            <span className="v328_51">Number of Stops   : </span>
-            <span className="v328_52">Credit Deduction Status : </span>
-            <span className="v328_53">Trip ID : </span>
-            <span className="v328_54">Date : </span>
-            <span className="v328_55">Routes : </span>
-            <span className="v328_56">{this.state.total_fee}</span>
-            <span className="v328_57">{this.state.top_ups_at_the_stations}</span>
-            <span className="v328_58">{this.state.number_of_stops}</span>
-            <span className="v328_59">{this.state.credit_deduction_status}</span>
-            <span className="v328_60">Copyright@ travelbuddy.com</span>
-            <input type="text" id="fname" placeholder="Enter Date" className="v328_62"
-              style={{ marginTop: "40px" }}
-              name="search_date"
-              value={this.state.search_date}
-              onChange={this.onChange}
-              required
-              style={{ width: "325px", height: "46px", marginTop: "-20px", marginLeft: "-5px" }}
-            />
-            <div className="v328_64"></div>
-            <div className="v328_65" onClick={this.onSubmit} />
-            <button className="v332_105">Print</button>
-            <button className="v332_106">Back</button>
+        <div className="trip_history_container">
+          {/* <div>
+            <span className="v328_44">My Trips</span>
+          </div> */}
 
-          </div>
+          <div className="v328_39" />
+          <div className="v328_40" />
+          <div className="name" />
+          <div className="name" />
+          <div className="name" />
+          <span className="v328_44">My Trips</span>
+          <span className="v328_45">{this.state.trip_id}</span>
+          <span className="v328_46">{this.state.date}</span>
+          <span className="v328_47"> {this.state.route}</span>
+          <span className="v328_48">Home&gt;Trip History</span>
+          <span className="v328_49">Total Fee : </span>
+          <span className="v328_50">Top Ups at the stations : </span>
+          <span className="v328_51">Number of Stops : </span>
+          <span className="v328_52">Credit Deduction Status : </span>
+          <span className="v328_53">Trip ID : </span>
+          <span className="v328_54">Date : </span>
+          <span className="v328_55">Routes : </span>
+          <span className="v328_56">{this.state.total_fee}</span>
+          <span className="v328_57">{this.state.top_ups_at_the_stations}</span>
+          <span className="v328_58">{this.state.number_of_stops}</span>
+          <span className="v328_59">{this.state.credit_deduction_status}</span>
+          <span className="v328_60">Copyright@ travelbuddy.com</span>
+          <input
+            type="text"
+            id="fname"
+            placeholder="Enter Date"
+            className="v328_62"
+            style={{ marginTop: "40px" }}
+            name="search_date"
+            value={this.state.search_date}
+            onChange={this.onChange}
+            required
+            // style={{ width: "325px", height: "46px", marginTop: "-20px", marginLeft: "-5px" }}
+          />
+          <div className="v328_64"></div>
+          <div className="v328_65" onClick={this.onSubmit} />
+          <button className="v332_105">Print</button>
+          <button className="v332_106">Back</button>
         </div>
-
       </>
     );
 

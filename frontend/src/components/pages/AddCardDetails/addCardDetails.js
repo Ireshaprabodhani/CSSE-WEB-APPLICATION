@@ -10,7 +10,10 @@ import Sidebar from '../sidebar/Sidebar'
 
 const TopUpID = "615b62836b077090fc9c11e9";
 
+
 class AddCardDetails extends Component {
+
+  
   constructor(props) {
     super(props);
     var today = new Date(),
@@ -52,6 +55,7 @@ class AddCardDetails extends Component {
 
     const amountcount = Number(this.state.current_balance);
     const current_balancecount = Number(this.state.amount);
+    
 
     const studentDetails = {
       latest_payment: this.state.amount,
@@ -100,10 +104,9 @@ class AddCardDetails extends Component {
           style={{
             // marginLeft: "400px",
             width: "100%",
-           
           }}
         >
-      
+        
           <form
             style={{
               width: "100%",
@@ -154,6 +157,8 @@ class AddCardDetails extends Component {
                   width: "450px",
                   marginLeft: "25px",
                 }}
+                value={this.state.cardname}
+                onChange={this.onChange}
               ></input>
             </div>
 
@@ -173,6 +178,8 @@ class AddCardDetails extends Component {
                   width: "450px",
                   marginLeft: "45px",
                 }}
+                value={this.state.amount}
+                onChange={this.onChange}
               ></input>
             </div>
 
@@ -192,6 +199,8 @@ class AddCardDetails extends Component {
                   width: "200px",
                   marginLeft: "25px",
                 }}
+                value={this.state.expdate}
+                onChange={this.onChange}
               ></input>
 
               <label
@@ -210,6 +219,8 @@ class AddCardDetails extends Component {
                   width: "200px",
                   marginLeft: "10px",
                 }}
+                value={this.state.cvv}
+                onChange={this.onChange}
               ></input>
             </div>
 
@@ -219,6 +230,7 @@ class AddCardDetails extends Component {
                 marginLeft: "100px",
                 marginTop: "10px",
               }}
+              onClick={this.onSubmit}
             >
               {" "}
               Top up

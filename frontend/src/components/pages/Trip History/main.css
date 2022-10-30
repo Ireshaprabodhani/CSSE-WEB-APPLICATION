@@ -261,21 +261,21 @@ body {
 .v328_44 {
   width: 313px;
   color: rgba(0,0,0,1);
-  position: absolute;
+  /* position: absolute;
   top: 145px;
-  left: 314px;
+  left: 314px; */
   font-family: Roboto;
   font-weight: Bold;
   font-size: 23px;
-  opacity: 1;
+  /* opacity: 1; */
   text-align: left;
 }
 .v328_45 {
   width: 313px;
   color: rgba(0,0,0,1);
-  position: absolute;
+  /* position: absolute;
   top: 228px;
-  left: 770px;
+  left: 770px; */
   font-family: Roboto;
   font-weight: Light;
   font-size: 18px;
@@ -285,9 +285,9 @@ body {
 .v328_46 {
   width: 313px;
   color: rgba(0,0,0,1);
-  position: absolute;
+  /* position: absolute;
   top: 276px;
-  left: 770px;
+  left: 770px; */
   font-family: Roboto;
   font-weight: Light;
   font-size: 18px;
@@ -297,9 +297,9 @@ body {
 .v328_47 {
   width: 313px;
   color: rgba(0,0,0,1);
-  position: absolute;
+  /* position: absolute;
   top: 329px;
-  left: 760px;
+  left: 760px; */
   font-family: Roboto;
   font-weight: Light;
   font-size: 18px;

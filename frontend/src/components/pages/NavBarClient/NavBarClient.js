@@ -3,7 +3,7 @@ import './navbarclient.css'
 export default function NavBarClient() {
     return (
         <div className='navBarClient'>
-            <span className='client_home_logo'>Travel Buddy</span>
+            <span className='client_home_logo'>Happy Travelling</span>
             <div className="nav_link_row">
                 <div className="nav_link">
                     TimeTable

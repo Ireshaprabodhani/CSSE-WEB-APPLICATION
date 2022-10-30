@@ -38,8 +38,8 @@ function App() {
             <div className="right_bar">
               <div id="content-wrapper">
                 <Switch>
-                  <Route path="/" exact component={addCardDetails} />
-                  {/* <Route path="/" exact component={Home} /> */}
+                  <Route path="/addcarddetails" exact component={addCardDetails} />
+                  <Route path="/" exact component={Home} />
 
                   <Route
                     path="/PublicTransport"

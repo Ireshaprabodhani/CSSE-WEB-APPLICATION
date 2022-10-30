@@ -79,7 +79,7 @@
 body {
   font-size: 14px;
 }
-.manager_portal_container {
+/* .manager_portal_container {
   width: 100%;
   height: 1024px;
   background: rgba(255,255,255,1);
@@ -88,7 +88,7 @@ body {
   top: 0px;
   left: 0px;
   overflow: hidden;
-}
+} */
 .v332_27 {
   width: 990px;
   height: 643px;

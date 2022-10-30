@@ -13,68 +13,83 @@ export default function Sidebar(props) {
             Dashboard
           </Link>
         </li>
+
         <li>
           <a
-            href="#customers"
+            href="#timetable"
             className="font-color dropdown-toggle"
             data-toggle="collapse"
             aria-expanded="false"
           >
-            <i class="fa fa-user" aria-hidden="true"></i>
-            Customers
+            <i class="fa fa-user-md" aria-hidden="true"></i>
+            TimeTable
           </a>
-          <ul className="collapse list-unstyled font-color" id="customers">
+
+          <ul className="collapse list-unstyled font-color" id="timetable">
             <li>
-              <Link to="./customer/add" className="font-color">
-                <i class="fa fa-users" aria-hidden="true"></i>
-                Add New Customers
+              <Link to="./addtimetable" className="font-color">
+                <i class="fas fa-dot-circle"></i>
+                Add TimeTable
               </Link>
             </li>
             <li>
-              <Link to="/deleteCustomer" className="font-color">
+              <Link to="./timetable" className="font-color">
                 <i class="fas fa-dot-circle"></i>
-                Get Customer Details
-              </Link>
-            </li>
-            <li>
-              <Link to="/Customers" className="font-color">
-                <i class="fas fa-dot-circle"></i>
-                View Customer
-              </Link>
-            </li>
-            <li>
-              <Link to="/editCustomer" className="font-color">
-                <i class="fas fa-dot-circle"></i>
-                Edit Customer
+                Update TimeTable
               </Link>
             </li>
           </ul>
         </li>
-        <li>
+        {/* <li>
           <a
-            href="#patients"
+           
             className="font-color dropdown-toggle"
             data-toggle="collapse"
             aria-expanded="false"
           >
-            <i class="fas fa-glasses"></i>
-            Patients
+            <i class="fa fa-user-md" aria-hidden="true"></i>
+            Time Table
           </a>
-          <ul className="collapse list-unstyled font-color" id="patients">
+          <ul className="collapse list-unstyled font-color" id="surgeons">
             <li>
               <Link to="./new-design" className="font-color">
                 <i class="fas fa-dot-circle"></i>
-                Patients
+                Add TimeTable
               </Link>
             </li>
             <li>
-              <Link to="./patients" className="font-color">
+              <Link to="./surgeons" className="font-color">
                 <i class="fas fa-dot-circle"></i>
-                Patients
+                Update TimeTable
               </Link>
             </li>
           </ul>
-        </li>
+        </li> */}
+        {/* <li>
+          <a
+            href="#surgeons"
+            className="font-color dropdown-toggle"
+            data-toggle="collapse"
+            aria-expanded="false"
+          >
+            <i class="fa fa-user-md" aria-hidden="true"></i>
+            Vehicles
+          </a>
+          <ul className="collapse list-unstyled font-color" id="surgeons">
+            <li>
+              <Link to="./new-design" className="font-color">
+                <i class="fas fa-dot-circle"></i>
+                Add Vehicles
+              </Link>
+            </li>
+            <li>
+              <Link to="./surgeons" className="font-color">
+                <i class="fas fa-dot-circle"></i>
+                Update Vehicles
+              </Link>
+            </li>
+          </ul>
+        </li> */}
         <li>
           <a
             href="#surgeons"
@@ -83,24 +98,24 @@ export default function Sidebar(props) {
             aria-expanded="false"
           >
             <i class="fa fa-user-md" aria-hidden="true"></i>
-            Surgeons
+            Routes
           </a>
           <ul className="collapse list-unstyled font-color" id="surgeons">
             <li>
               <Link to="./new-design" className="font-color">
                 <i class="fas fa-dot-circle"></i>
-                Surgeons
+                Add Routes
               </Link>
             </li>
             <li>
               <Link to="./surgeons" className="font-color">
                 <i class="fas fa-dot-circle"></i>
-                Surgeons
+                Update Routes
               </Link>
             </li>
           </ul>
         </li>
-        <li>
+        {/* <li>
           <a
             href="#spectacle"
             className="font-color dropdown-toggle"
@@ -136,8 +151,8 @@ export default function Sidebar(props) {
               </Link>
             </li>
           </ul>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <a
             href="#channeling"
             className="font-color dropdown-toggle"
@@ -161,7 +176,7 @@ export default function Sidebar(props) {
               </Link>
             </li>
           </ul>
-        </li>
+        </li> */}
         <li>
           <a
             href="#staff"
@@ -169,25 +184,31 @@ export default function Sidebar(props) {
             data-toggle="collapse"
             aria-expanded="false"
           >
-            <i class="fas fa-user-headset"></i>
-            Staff
+            <i class="fa fa-users" aria-hidden="true"></i>
+            User
           </a>
           <ul className="collapse list-unstyled font-color" id="staff">
             <li>
+              <Link to="./addcarddetails" className="font-color">
+                <i class="fas fa-dot-circle"></i>
+                Top Up Account
+              </Link>
+            </li>
+            <li>
               <Link to="./new-design" className="font-color">
                 <i class="fas fa-dot-circle"></i>
-                Staff
+                View Balance
               </Link>
             </li>
             <li>
               <Link to="./staff" className="font-color">
                 <i class="fas fa-dot-circle"></i>
-                Staff
+                View Time Table
               </Link>
             </li>
           </ul>
         </li>
-        <li>
+        {/* <li>
           <a
             href="#repairs"
             className="font-color dropdown-toggle"
@@ -211,8 +232,8 @@ export default function Sidebar(props) {
               </Link>
             </li>
           </ul>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <a
             href="#blogs"
             className="font-color dropdown-toggle"
@@ -236,7 +257,39 @@ export default function Sidebar(props) {
               </Link>
             </li>
           </ul>
-        </li>
+        </li> */}
+
+        {/* <li>
+          <a
+            href="#staff"
+            className="font-color dropdown-toggle"
+            data-toggle="collapse"
+            aria-expanded="false"
+          >
+            <i class="fa fa-users" aria-hidden="true"></i>
+            TimeTable
+          </a>
+          <ul className="collapse list-unstyled font-color" id="staff">
+            <li>
+              <Link to="./addcarddetails" className="font-color">
+                <i class="fas fa-dot-circle"></i>
+              Add TimeTable
+              </Link>
+            </li>
+            <li>
+              <Link to="./new-design" className="font-color">
+                <i class="fas fa-dot-circle"></i>
+               Update TimeTable
+              </Link>
+            </li>
+            <li>
+              <Link to="./staff" className="font-color">
+                <i class="fas fa-dot-circle"></i>
+                View Time Table
+              </Link>
+            </li>
+          </ul>
+        </li> */}
       </ul>
     </nav>
   );

@@ -78,35 +78,27 @@ class AddStudent extends Component {
       <>
         <div>
           <div className="manager_portal_container">
-            <div className="v332_27" />
+            {/* <div className="v332_27" />
             <div className="v332_28" />
             <div className="v332_29" />
             <div className="v332_30" />
             <div className="v332_31" />
             <div className="v332_32" />
             <div className="v332_33" />
-            <span className="v332_34">LogOut</span>
-            <span className="v332_35">Profile</span>
-            <span className="v332_36">|</span>
-            <span className="v332_37">Manager Portal</span>
-            <span className="button_home">Home</span>
-            <span className="button_statics">Statistics</span>
+             */}
             <span className="button_view_timetable">View Timetable</span>
             <button className="view_time_table">View Timetables</button>
             <button className="update_timetable">Update Timetables</button>
             <button className="allocated_drivers">Allocate Busses/Drivers</button>
             <span className="v332_41">Selected route : </span>
             <span className="v332_42">{this.state.route} </span>
-            <span className="v332_43">Passengers</span>
-            <span className="v332_44">Timetable</span>
-            <span className="v332_45">FAQ</span>
-            <span className="v332_46">Contact</span>
-            <div className="v332_47" />
+           
+            {/* <div className="v332_47" />
             <div className="v332_48" />
             <div className="name" />
             <div className="name" />
             <div className="name" />
-            <div className="name" />
+            <div className="name" /> */}
             <input type="text" id="fname" placeholder="Enter route" className="v332_53"
               style={{ marginTop: "0px" }}
               name="route"
