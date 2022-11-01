@@ -39,6 +39,7 @@ a:focus {
   margin:0 0 30px 30px;
   overflow-y: auto;
   overflow-x: hidden;
+  border:2px #10a8a9
 }
 
 #sidebar.active {

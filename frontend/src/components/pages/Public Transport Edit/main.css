@@ -296,7 +296,7 @@ body {
   opacity: 1;
   text-align: left;
 }
-.v336_118 {
+/* .v336_118 {
   width: 21px;
   height: 21px;
   background: url("../../Images/search.png");
@@ -304,7 +304,7 @@ body {
   position: absolute;
   top: 298px;
   left: 1129px;
-}
+} */
 .v336_119 {
   width: 24px;
   height: 24px;
@@ -336,16 +336,16 @@ body {
 .name {
   color: #fff;
 }
-.v336_123 {
+/* .v336_123 {
   width: 25px;
   height: 24px;
   background: url("../../Images/plus.png");
-  /* background-color: #FE9814; */
+  
   opacity: 1;
   position: absolute;
   top: 806px;
   left: 1282px;
-}
+} */
 .v336_124 {
   width: 930px;
   height: 56px;
@@ -801,3 +801,48 @@ body {
   top: 0px;
   left: 0px;
 } */
+.update_timetable_container{
+  width: 100%;
+  height: 50%;
+  background-color: white;
+}
+.Update_timetable{
+  font-size: 20px;
+  margin-left: 400px;
+  padding-top: 20px;
+}
+.selected_route{
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.input_route{
+  border-radius: 10px;
+  width: 400px;
+  margin-left: 500px;
+  margin-top: 40px;
+}
+.search_input_edit{
+  width: 21px;
+  height: 21px;
+  background: url("../../Images/search.png");
+  position: absolute;
+  top: 70px;
+  margin-left: 910px;
+}
+.drop_down{
+   width: 24px;
+  height: 24px;
+  background: url("../../Images/keyboard_arrow_down.png");
+  position: absolute;
+  top: 70px;
+  margin-left: 850px;
+}
+.plus{
+   background: url("../../Images/plus.png");
+   width: 25px;
+   height: 25px;
+   margin-left: 950px;
+   position: absolute;
+   top: 10px;
+}

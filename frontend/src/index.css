@@ -54,14 +54,14 @@ body {
   width: 100%;
 }
 .left_bar {
-  width: 30%;
+  /* width: 30%; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
 .right_bar {
-  width: 80%;
+  /* width: 80%; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;

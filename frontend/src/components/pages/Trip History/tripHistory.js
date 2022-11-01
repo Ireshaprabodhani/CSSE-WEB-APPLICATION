@@ -91,45 +91,98 @@ class tripHistory extends Component {
           {/* <div>
             <span className="v328_44">My Trips</span>
           </div> */}
+          <div className="name_trip_history">
+            <h3>Trip History</h3>
+          </div>
+          <div className="input_date" onClick={this.onSubmit}>
+            <span>Input date:</span>
+            <input
+              type="text"
+              id="fname"
+              className="date_input"
+              name="search_date"
+              value={this.state.search_date}
+              onChange={this.onChange}
+              required
+              style={{
+                width: "400px",
+                marginLeft: "120px",
+                borderRadius: "12px",
+              }}
+            />
+            <div className="search" onClick={this.onSubmit}></div>
+            <div className="date"></div>
+          </div>
 
-          <div className="v328_39" />
-          <div className="v328_40" />
-          <div className="name" />
-          <div className="name" />
-          <div className="name" />
-          <span className="v328_44">My Trips</span>
-          <span className="v328_45">{this.state.trip_id}</span>
-          <span className="v328_46">{this.state.date}</span>
-          <span className="v328_47"> {this.state.route}</span>
-          <span className="v328_48">Home&gt;Trip History</span>
-          <span className="v328_49">Total Fee : </span>
-          <span className="v328_50">Top Ups at the stations : </span>
-          <span className="v328_51">Number of Stops : </span>
-          <span className="v328_52">Credit Deduction Status : </span>
-          <span className="v328_53">Trip ID : </span>
-          <span className="v328_54">Date : </span>
-          <span className="v328_55">Routes : </span>
-          <span className="v328_56">{this.state.total_fee}</span>
-          <span className="v328_57">{this.state.top_ups_at_the_stations}</span>
-          <span className="v328_58">{this.state.number_of_stops}</span>
-          <span className="v328_59">{this.state.credit_deduction_status}</span>
-          <span className="v328_60">Copyright@ travelbuddy.com</span>
-          <input
-            type="text"
-            id="fname"
-            placeholder="Enter Date"
-            className="v328_62"
-            style={{ marginTop: "40px" }}
-            name="search_date"
-            value={this.state.search_date}
-            onChange={this.onChange}
-            required
-            // style={{ width: "325px", height: "46px", marginTop: "-20px", marginLeft: "-5px" }}
-          />
-          <div className="v328_64"></div>
-          <div className="v328_65" onClick={this.onSubmit} />
-          <button className="v332_105">Print</button>
-          <button className="v332_106">Back</button>
+          <div>
+            <span className="trip_id">Trip ID : </span>
+            <span className="">{this.state.trip_id}</span>
+          </div>
+          <div style={{ marginTop: "20px" }}>
+            <span className="trip_id">Date : </span>
+            <span className="">{this.state.date}</span>
+          </div>
+          <div style={{ marginTop: "20px" }}>
+            <span className="trip_id">Route : </span>
+            <span className="">{this.state.route}</span>
+          </div>
+          <div style={{ marginTop: "20px" }}>
+            <span className="trip_id">Total Fee : </span>
+            <span className="">{this.state.total_fee}</span>
+          </div>
+          <div style={{ marginTop: "20px" }}>
+            <span className="trip_id">Top Ups at the stations : </span>
+            <span className="">{this.state.top_ups_at_the_stations}</span>
+          </div>
+          <div style={{ marginTop: "20px" }}>
+            <span className="trip_id">Number of Stops : </span>
+            <span className="">{this.state.number_of_stops}</span>
+          </div>
+          <div style={{ marginTop: "20px" }}>
+            <span className="trip_id">Credit Deduction Status : </span>
+            <span className="">{this.state.credit_deduction_status}</span>
+          </div>
+          <button
+            style={{ marginTop: "20px", width: "200px", marginLeft: "500px" }}
+          >
+            Print
+          </button>
+
+          {/* <table
+            class="table"
+            style={{ marginTop: "40px", borderRadius: "5PX" }}
+          >
+            <thead
+              style={{
+                backgroundColor: "lightblue",
+              }}
+            >
+              <tr>
+                <th scope="col">Trip Id</th>
+                <th scope="col">Date</th>
+                <th scope="col">Route</th>
+                <th scope="col">Total Fee </th>
+                <th scope="col">Top Ups at the stations </th>
+                <th scope="col">Number of Stops </th>
+                <th scope="col">Number of Stops </th>
+                <th scope="col">Credit Deduction Status </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.history.length > 0 &&
+                this.state.history.map((item, index) => (
+                  <tr key={item.trip_id}>
+                    <th>{item.date}</th>
+                    <td>{item.route}</td>
+                    <td> {item.total_fee}</td>
+                    <td> {item.top_ups_at_the_stations}</td>
+                    <td> {item.number_of_stops}</td>
+                    <td> {item.credit_deduction_status}</td>
+                    <td> {item.credit_deduction_status}</td>
+                  </tr>
+                ))}
+            </tbody>
+          </table> */}
         </div>
       </>
     );

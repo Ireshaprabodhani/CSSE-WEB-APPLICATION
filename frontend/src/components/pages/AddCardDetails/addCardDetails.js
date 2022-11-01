@@ -12,8 +12,6 @@ const TopUpID = "615b62836b077090fc9c11e9";
 
 
 class AddCardDetails extends Component {
-
-  
   constructor(props) {
     super(props);
     var today = new Date(),
@@ -55,7 +53,6 @@ class AddCardDetails extends Component {
 
     const amountcount = Number(this.state.current_balance);
     const current_balancecount = Number(this.state.amount);
-    
 
     const studentDetails = {
       latest_payment: this.state.amount,
@@ -106,7 +103,6 @@ class AddCardDetails extends Component {
             width: "100%",
           }}
         >
-        
           <form
             style={{
               width: "100%",
@@ -130,6 +126,7 @@ class AddCardDetails extends Component {
               <input
                 className="input_class_number"
                 type="number"
+                name="cardnumber"
                 placeholder="Add card Number"
                 value={this.state.cardnumber}
                 onChange={this.onChange}
@@ -151,6 +148,7 @@ class AddCardDetails extends Component {
               <input
                 className="input_card_name"
                 type="text"
+                name="cardname"
                 placeholder="Add card Name"
                 required
                 style={{
@@ -172,6 +170,7 @@ class AddCardDetails extends Component {
               <input
                 className="input_card_name"
                 type="number"
+                name="amount"
                 placeholder="Enter amount"
                 required
                 style={{
@@ -193,6 +192,7 @@ class AddCardDetails extends Component {
               <input
                 className="input_card_name"
                 type="date"
+                name="expdate"
                 placeholder="Enter amount"
                 required
                 style={{
@@ -213,6 +213,7 @@ class AddCardDetails extends Component {
               <input
                 className="input_card_name"
                 type="number"
+                name="cvv"
                 placeholder="Enter amount"
                 required
                 style={{

@@ -1,13 +1,10 @@
-import React, { Component } from "react";
-import './main.css'
+import React, { Component , useState} from "react";
+import "./main.css";
 import axios from "axios";
 import { APIURL } from "../../API/environment";
 import { Button, Link } from "@mui/material";
 
-
-
 class AddStudent extends Component {
-
   constructor(props) {
     super(props);
 
@@ -22,9 +19,21 @@ class AddStudent extends Component {
     cvv: "",
     amount: "",
     timetable: [],
-    route: ""
-
+    route: "",
   };
+  onDelete(event, ID) {
+    axios.delete(`${APIURL}/TimeTable/DeleteByID/${ID}`).then((res) => {
+      console.log("res", res);
+      if (res.data.code === 200) {
+        console.log("res.data.code", res.data.code);
+        alert("Deleted !");
+        window.location.reload();
+      } else {
+        alert(res.data.message);
+        window.location.reload();
+      }
+    });
+  }
 
   onGenderOptionSelected(e) {
     this.state.items = e.label;
@@ -38,105 +47,201 @@ class AddStudent extends Component {
     event.preventDefault();
 
     let studentDetails = {
-
-      route: this.state.route
-
+      route: this.state.route,
     };
-
-
 
     console.log("classApplications Details: ", studentDetails);
 
     axios
       .get(`${APIURL}/TimeTable/getDetailsByRoute/${this.state.route}`)
-      .then(response => {
-
+      .then((response) => {
         this.setState({ timetable: response.data.data });
         console.log("timetable ", this.state.timetable);
-
-      })
-
-
+      });
+    
   }
 
   componentDidMount() {
+    axios
+      .get(`${APIURL}/TimeTable/GetAllTimeTable`)
 
-
-    axios.get(`${APIURL}/TimeTable/GetAllTimeTable`)
-
-      .then(response => {
-
+      .then((response) => {
         this.setState({ timetable: response.data.data });
         console.log("timetable ", this.state.timetable);
-      })
+      });
   }
+
+ 
+    
 
   render() {
 
+     const exportPDF = () => {
+       const unit = "pt";
+       const size = "A4"; // Use A1, A2, A3 or A4
+       const orientation = "portrait"; // portrait or landscape
 
+       const marginLeft = 40;
+       const doc = new jsPDF(orientation, unit, size);
+
+       doc.setFontSize(15);
+
+       const title = "Surgeons Report";
+       const headers = [
+         [
+           "Name",
+           "Contact Number",
+           "Email",
+           "Working Expereince",
+           "Current Working Hospital",
+         ],
+       ];
+
+       const d = data.map((elt) => [
+         elt.name,
+         elt.contactNumber,
+         elt.email,
+         elt.workingExpereince,
+         elt.currentWorkingHospital,
+       ]);
+
+       let content = {
+         startY: 50,
+         head: headers,
+         body: d,
+       };
+
+       doc.text(title, marginLeft, 40);
+       doc.autoTable(content);
+       doc.save(`surgeon.pdf`);
+     };
     return (
       <>
         <div>
-          <div className="manager_portal_container">
-            {/* <div className="v332_27" />
-            <div className="v332_28" />
-            <div className="v332_29" />
-            <div className="v332_30" />
-            <div className="v332_31" />
-            <div className="v332_32" />
-            <div className="v332_33" />
-             */}
-            <span className="button_view_timetable">View Timetable</span>
-            <button className="view_time_table">View Timetables</button>
-            <button className="update_timetable">Update Timetables</button>
-            <button className="allocated_drivers">Allocate Busses/Drivers</button>
-            <span className="v332_41">Selected route : </span>
-            <span className="v332_42">{this.state.route} </span>
-           
-            {/* <div className="v332_47" />
-            <div className="v332_48" />
-            <div className="name" />
-            <div className="name" />
-            <div className="name" />
-            <div className="name" /> */}
-            <input type="text" id="fname" placeholder="Enter route" className="v332_53"
-              style={{ marginTop: "0px" }}
-              name="route"
-              value={this.state.route}
-              onChange={this.onChange}
-              required
+          <div
+            className="manager_portal_container"
+            style={{
+              width: "100%",
+              backgroundColor: "white",
+              borderColor: "1px solid black",
+              borderRadius: "10px",
+              paddingLeft: "20px",
+              paddingRight: "20px",
+            }}
+          >
+            <div>
+              {/* <span
+                className=""
+                style={{ marginLeft: "80px", marginTop: "20px" }}
+              >
+                Selected route :{" "}
+              </span>
+              <span className="">{this.state.route} </span> */}
 
-            />
+              <input
+                type="date"
+                id="fname"
+                placeholder="Enter route"
+                className=""
+                style={{
+                  marginTop: "20px",
+                  paddingLeft: "50px",
+                  width: "300px",
+                  borderRadius: "5px",
+                }}
+                name="dateAndtime"
+                value={this.state.dateAndtime}
+                onChange={this.onChange}
+                required
+              />
 
-            <div className="v332_55" onClick={this.onSubmit} />
-            <div className="v332_56">
-              <div className="v332_57" />
-              <div className="v332_58" />
+              <button className= "btn_report"style={{ marginLeft:"400px", }}>Generate Report</button>
             </div>
-            <div className="name" />
-
-
-            <div style={{ marginTop: "500px", width: "800px", marginLeft: "450px" }}>
-
-              {this.state.timetable.length > 0 && this.state.timetable.map((item, index) => (
-                <>
-
-                  <div style={{ border: "1px solid black" }} key={item.route_path} className="timeclass">
-                    <h3 style={{ marginLeft: "30px", fontSize: "25px", marginTop: "30px" }}>{item.dateAndtime}</h3>
-                    <p style={{ marginLeft: "380px", fontSize: "20px", marginTop: "-30px" }}>{item.start}</p>
-                    <p style={{ marginLeft: "600px", fontSize: "20px", marginTop: "-40px" }}>{item.destination}</p>
-                  </div>
-                </>
-              ))}
-
+            <br></br>
+            <div
+              className="inside_table_first_col"
+              style={{
+                border: "1px solid grey",
+                borderRadius: "",
+                padding: "20px",
+              }}
+            >
+              <input
+                type="text"
+                className="input_class"
+                placeholder="&#9906; search"
+                style={{ borderRadius: "5px" }}
+              />
+              <a href="/AddTimeTable">
+                <button
+                  className="add_new"
+                  type="button"
+                  style={{ border: "1px solid gray", borderRadius: "5px" }}
+                >
+                  + Add New
+                </button>
+              </a>
             </div>
+            <table
+              class="table"
+              style={{
+                // marginTop: "40px",
+                border: "1px solid grey",
+                borderRadius: "10px",
+              }}
+            >
+              <thead
+                style={{
+                  borderRadius: "10px",
+                }}
+              >
+                <tr style={{ backgroundColor: "#10a8a9" }}>
+                  <th scope="col" style={{ color: "#fff" }}>
+                    Date And Time
+                  </th>
+                  <th scope="col" style={{ color: "#fff" }}>
+                    Start
+                  </th>
+                  <th scope="col" style={{ color: "#fff" }}>
+                    Destination
+                  </th>
+                  <th scope="col" style={{ color: "#fff" }}></th>
+                  <th scope="col" style={{ color: "#fff" }}></th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.timetable.length > 0 &&
+                  this.state.timetable.map((item, index) => (
+                    <tr key={item.route_path}>
+                      <th>{item.dateAndtime}</th>
+                      <td>{item.start}</td>
+                      <td> {item.destination}</td>
+
+                      <td style={{ color: "white" }}>
+                        <Link
+                          to={`./PublicTransportEdit/${item._id}`}
+                          className=""
+                        >
+                          Edit
+                        </Link>
+                      </td>
+                      <td>
+                        <button
+                          className="btn btn-danger"
+                          onClick={(e) => this.onDelete(e, item._id)}
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </>
     );
-
   }
 }
-
 
 export default AddStudent;

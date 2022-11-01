@@ -12,6 +12,9 @@ import Home from "./components/pages/Home/Home";
 import Sidebar from "./components/pages/sidebar/Sidebar";
 import React, { useState } from "react";
 import NavBarClient from "./components/pages/NavBarClient/NavBarClient";
+import ViewBalance from "./components/pages/viewBalance/ViewBalance";
+import ViewTimeTableCl from "./components/pages/viewTimetableClient/ViewTimeTableCl";
+import AddTripHistory from "./components/pages/Trip History/AddTripHistory";
 
 function App() {
   const [isActive, setActive] = useState(false);
@@ -38,7 +41,11 @@ function App() {
             <div className="right_bar">
               <div id="content-wrapper">
                 <Switch>
-                  <Route path="/addcarddetails" exact component={addCardDetails} />
+                  <Route
+                    path="/addcarddetails"
+                    exact
+                    component={addCardDetails}
+                  />
                   <Route path="/" exact component={Home} />
 
                   <Route
@@ -54,10 +61,21 @@ function App() {
                   <Route path="/TimeTable" exact component={TimeTable} />
                   <Route path="/tripHistory" exact component={tripHistory} />
                   {/* <Route path="/tripHistory" exact component={tripHistory} />
-          <Route path="/TimeTable" exact component={TimeTable} />
-          <Route path="/PublicTransport" exact component={PublicTransport} />
-          <Route path="/PublicTransportEdit" exact component={PublicTransportEdit} /> */}
+                     <Route path="/TimeTable" exact component={TimeTable} />
+                     <Route path="/PublicTransport" exact component={PublicTransport} />
+                     <Route path="/PublicTransportEdit" exact component={PublicTransportEdit} /> */}
                   <Route path="/addtimetable" exact component={addTimeTable} />
+                  <Route path="/viewBalnce" exact component={ViewBalance} />
+                  <Route
+                    path="/viewClientTb"
+                    exact
+                    component={ViewTimeTableCl}
+                  />
+                  <Route
+                    path="/addTripHistory"
+                    exact
+                    component={AddTripHistory}
+                  />
                 </Switch>
               </div>
             </div>
