@@ -81,55 +81,90 @@ class AddStudent extends Component {
               backgroundColor: "white",
               borderColor: "1px solid black",
               borderRadius: "10px",
+              paddingLeft: "20px",
+              paddingRight: "20px",
             }}
           >
-            <div style={{ marginLeft: "400px", color:"blue" }}>
-              <h3> View Time Table</h3>
-            </div>
-
-         
             <div>
-              <span
+              {/* <span
                 className=""
                 style={{ marginLeft: "80px", marginTop: "20px" }}
               >
                 Selected route :{" "}
               </span>
-              <span className="">{this.state.route} </span>
+              <span className="">{this.state.route} </span> */}
 
               <input
-                type="text"
+                type="date"
                 id="fname"
                 placeholder="Enter route"
                 className=""
                 style={{
                   marginTop: "20px",
-                  marginLeft: "200px",
+                  paddingLeft: "50px",
                   width: "300px",
                   borderRadius: "5px",
                 }}
-                name="route"
-                value={this.state.route}
+                name="dateAndtime"
+                value={this.state.dateAndtime}
                 onChange={this.onChange}
                 required
               />
-
-             
+{/* 
+              <button className="btn_report" style={{ marginLeft: "400px" }}>
+                Generate Report
+              </button> */}
             </div>
             <br></br>
-
+            <div
+              className="inside_table_first_col"
+              style={{
+                border: "1px solid grey",
+                borderRadius: "",
+                padding: "20px",
+              }}
+            >
+              <input
+                type="text"
+                className="input_class"
+                placeholder="&#9906; search"
+                style={{ borderRadius: "5px" }}
+              />
+              {/* <a href="/AddTimeTable">
+                <button
+                  className="add_new"
+                  type="button"
+                  style={{ border: "1px solid gray", borderRadius: "5px" }}
+                >
+                  + Add New
+                </button>
+              </a> */}
+            </div>
             <table
               class="table"
-              style={{ marginTop: "40px", borderRadius: "5PX" }}
+              style={{
+                // marginTop: "40px",
+                border: "1px solid grey",
+                borderRadius: "10px",
+              }}
             >
-                        <thead style={{
-                  backgroundColor:'lightblue'
-              }}>
-                <tr>
-                  <th scope="col">Date And Time</th>
-                  <th scope="col">Start</th>
-                  <th scope="col">Destination</th>
-                 
+              <thead
+                style={{
+                  borderRadius: "10px",
+                }}
+              >
+                <tr style={{ backgroundColor: "#10a8a9" }}>
+                  <th scope="col" style={{ color: "#fff" }}>
+                    Date And Time
+                  </th>
+                  <th scope="col" style={{ color: "#fff" }}>
+                    Start
+                  </th>
+                  <th scope="col" style={{ color: "#fff" }}>
+                    Destination
+                  </th>
+                  {/* <th scope="col" style={{ color: "#fff" }}></th>
+                  <th scope="col" style={{ color: "#fff" }}></th> */}
                 </tr>
               </thead>
               <tbody>
@@ -140,7 +175,22 @@ class AddStudent extends Component {
                       <td>{item.start}</td>
                       <td> {item.destination}</td>
 
-                      
+                      {/* <td style={{ color: "white" }}>
+                        <Link
+                          to={`./PublicTransportEdit/${item._id}`}
+                          className=""
+                        >
+                          Edit
+                        </Link>
+                      </td> */}
+                      {/* <td>
+                        <button
+                          className="btn btn-danger"
+                          onClick={(e) => this.onDelete(e, item._id)}
+                        >
+                          Delete
+                        </button>
+                      </td> */}
                     </tr>
                   ))}
               </tbody>

@@ -3,7 +3,6 @@ const messages = require("../messages/messages");
 
 const TopListController = {
   createTripHistory: async (req, res) => {
-
     try {
       const {
         trip_id,
@@ -13,10 +12,8 @@ const TopListController = {
         total_fee,
         top_ups_at_the_stations,
         number_of_stops,
-        credit_deduction_status
-
+        credit_deduction_status,
       } = req.body;
-
 
       const newTripHistory = new TripHistory({
         trip_id,
@@ -26,7 +23,7 @@ const TopListController = {
         total_fee,
         top_ups_at_the_stations,
         number_of_stops,
-        credit_deduction_status
+        credit_deduction_status,
       });
 
       console.log("TripHistory Details : ", newTripHistory);
@@ -113,7 +110,9 @@ const TopListController = {
   getTripHistoryDetailsByDate: async (req, res) => {
     try {
       if (req.params && req.params.id) {
-        const TripHistoryDetails = await TripHistory.find({date: req.params.id });
+        const TripHistoryDetails = await TripHistory.find({
+          date: req.params.id,
+        });
 
         return res.status(200).json({
           code: messages.SuccessCode,
@@ -131,6 +130,23 @@ const TopListController = {
         message: err.message,
       });
     }
+  },
+
+  getAllTripHistory: async (req, res) => {
+    await TripHistory.find()
+      .then((data) => {
+        const count = data.length;
+        res.status(200).json({
+          code: 200,
+          success: true,
+          status: "OK",
+          data: data,
+          message: "All journey history are Received " + count,
+        });
+      })
+      .catch((error) => {
+        res.status(500).send({ error: error.message });
+      });
   },
 
   // UpdateTopPaymentByID: async (req, res) => {
@@ -169,6 +185,6 @@ const TopListController = {
   //     });
   //   }
   // },
-}
+};
 
 module.exports = TopListController;

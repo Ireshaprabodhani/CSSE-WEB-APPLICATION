@@ -83,115 +83,202 @@ class AddStudent extends Component {
               <i className="fas fa-at" />
               <i className="fas fa-mail-bulk" /> */}
             </div>
-            <form
-              onSubmit={this.onSubmit}
-              // style={{ width: "1000px", marginLeft: "-700px" }}
+            <div
+              style={{
+                height: "50%",
+                display: "flex",
+                flexDirection: "column",
+
+                justifyContent: "flex-start",
+                padding: "20px",
+              }}
             >
+              {" "}
               <h3
                 style={{
-                  marginLeft: "230px",
+                  // marginLeft: "230px",
                   color: "blue",
                 }}
               >
                 Add Trip History
               </h3>
-              <div className="" style={{ width: "" }}>
-                <div style={{ marginTop: "20px", marginLeft: "50px" }}>
-                  <label style={{ marginLeft: "20px" }}>Enter Trip Id</label>
-                  <input
-                    type="text"
-                    name="trip_id"
-                    value={this.state.trip_id}
-                    onChange={this.onChange}
-                    style={{ marginLeft: "95px", width: "300px" }}
-                  />
-                </div>
-
-                <div style={{ marginTop: "20px", marginLeft: "50px" }}>
-                  <label style={{ marginLeft: "20px" }}>Enter Date</label>
-                  <input
-                    type="text"
-                    name="date"
-                    value={this.state.date}
-                    onChange={this.onChange}
-                    style={{ marginLeft: "105px", width: "300px" }}
-                  />
-                </div>
-                <div style={{ marginTop: "20px", marginLeft: "50px" }}>
-                  <label style={{ marginLeft: "20px" }}>Enter Route</label>
-                  <input
-                    type="text"
-                    name="route"
-                    value={this.state.route}
-                    onChange={this.onChange}
-                    style={{ marginLeft: "95px", width: "300px" }}
-                  />
-                </div>
-
-                <div style={{ marginTop: "20px", marginLeft: "50px" }}>
-                  <label style={{ marginLeft: "20px" }}>Total Fee</label>
-                  <input
-                    type="text"
-                    name="state.total_fee"
-                    value={this.state.total_fee}
-                    onChange={this.onChange}
-                    style={{ marginLeft: "115px", width: "300px" }}
-                  />
-                </div>
-
-                <div style={{ marginTop: "20px", marginLeft: "50px" }}>
-                  <label style={{ marginLeft: "20px" }}>
-                    Top Up at the stations
-                  </label>
-                  <input
-                    type="text"
-                    name="top_ups_at_the_stations"
-                    value={this.state.top_ups_at_the_stations}
-                    onChange={this.onChange}
-                    style={{ marginLeft: "30px", width: "300px" }}
-                  />
-                </div>
-                <div style={{ marginTop: "20px", marginLeft: "50px" }}>
-                  <label style={{ marginLeft: "20px" }}>
-                    Enter Number of Stops
-                  </label>
-                  <input
-                    type="number"
-                    name="number_of_stops"
-                    value={this.state.number_of_stops}
-                    onChange={this.onChange}
-                    style={{ marginLeft: "25px", width: "300px" }}
-                  />
-                </div>
-
-                <div style={{ marginTop: "20px", marginLeft: "50px" }}>
-                  <label style={{ marginLeft: "20px" }}>
-                    Credit deduction Status
-                  </label>
-                  <input
-                    type="number"
-                    name="credit_deduction_status"
-                    value={this.state.credit_deduction_status}
-                    onChange={this.onChange}
-                    style={{ marginLeft: "20px", width: "300px" }}
-                  />
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                href="/"
+              <form
+                onSubmit={this.onSubmit}
                 style={{
-                  width: "480px",
-                  marginTop: "20px",
-                  marginLeft: "70px",
-                  backgroundColor: "blue",
-                  color: "white",
+                  border: "2px solid grey",
+                  borderRadius: "5px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  width: "100%",
+                  paddingBottom: "30px",
+                  paddingLeft: "20px",
+                  paddingRight: "20px",
                 }}
               >
-                Submit
-              </button>
-            </form>
+                <div className="info" style={{ width: "" }}>
+                  <div
+                    style={{
+                      marginTop: "30px",
+                      // marginLeft: "50px"
+                    }}
+                    className="input_div_iresha"
+                  >
+                    <lable
+                      style={
+                        {
+                          // marginLeft: "20px",
+                        }
+                      }
+                    >
+                      Enter Trip Id
+                    </lable>
+                    <input
+                      className="fname"
+                      type="text"
+                      name="trip_id"
+                      value={this.state.trip_id}
+                      onChange={this.onChange}
+                      
+                      style={{
+                        // marginLeft: "70px",
+                        width: "900px",
+                        height: "30px",
+                        borderRadius: "5px",
+                      }}
+                    />
+                  </div>
+                  <div
+                    style={{ marginTop: "20px" }}
+                    className="input_div_iresha"
+                  >
+                    <label style={{}}>Enter Date</label>
+                    <input
+                      type="date"
+                      name="date"
+                      value={this.state.date}
+                      onChange={this.onChange}
+                    
+                      style={{
+                        width: "900px",
+                        height: "30px",
+                        borderRadius: "5px",
+                      }}
+                    />
+                  </div>
+
+                  <div
+                    style={{ marginTop: "20px" }}
+                    className="input_div_iresha"
+                  >
+                    <label style={{}}>Enter Route</label>
+                    <input
+                      type="text"
+                      name="route"
+                      value={this.state.route}
+                      onChange={this.onChange}
+                      
+                      style={{
+                        width: "900px",
+                        height: "30px",
+                        borderRadius: "5px",
+                      }}
+                    />
+                  </div>
+
+                  <div
+                    style={{ marginTop: "20px" }}
+                    className="input_div_iresha"
+                  >
+                    <label style={{}}>Enter Total fee</label>
+                    <input
+                      type="text"
+                      name="total_fee"
+                      value={this.state.total_fee}
+                      onChange={this.onChange}
+                     
+                      style={{
+                        width: "900px",
+                        height: "30px",
+                        borderRadius: "5px",
+                      }}
+                    />
+                  </div>
+                  <div
+                    style={{ marginTop: "20px" }}
+                    className="input_div_iresha"
+                  >
+                    <label style={{}}>Enter Top up at the stations</label>
+                    <input
+                      type="text"
+                      name="top_ups_at_the_stations"
+                      value={this.state.top_ups_at_the_stations}
+                      onChange={this.onChange}
+                   
+                      style={{
+                        width: "900px",
+                        height: "30px",
+                        borderRadius: "5px",
+                      }}
+                    />
+                  </div>
+
+                  <div
+                    style={{ marginTop: "20px" }}
+                    className="input_div_iresha"
+                  >
+                    <label style={{}}>Enter Number of stops</label>
+                    <input
+                      type="text"
+                      name="number_of_stops"
+                      value={this.state.number_of_stops}
+                      onChange={this.onChange}
+                    
+                      style={{
+                        width: "900px",
+                        height: "30px",
+                        borderRadius: "5px",
+                      }}
+                    />
+                  </div>
+                  <div
+                    style={{ marginTop: "20px" }}
+                    className="input_div_iresha"
+                  >
+                    <label style={{}}>Enter credit deduction status</label>
+                    <input
+                      type="text"
+                      name="credit_deduction_status"
+                      value={this.state.credit_deduction_status}
+                      onChange={this.onChange}
+                    
+                      style={{
+                        width: "900px",
+                        height: "30px",
+                        borderRadius: "5px",
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  href="/"
+                  style={{
+                    width: "900px",
+                    marginTop: "20px",
+                    // marginLeft: "70px",
+                    backgroundColor: "#10a8a9",
+                    color: "white",
+                    height: "35px",
+                    borderRadius: "5px",
+                  }}
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </>

@@ -34,6 +34,10 @@ class AddCardDetails extends Component {
       latest_payment: "",
       latest_payment_date: "",
       current_balance: "",
+      account_id: "",
+      account_name: "",
+      card_id: "",
+      
     };
 
     this.onChange = this.onChange.bind(this);
@@ -58,18 +62,22 @@ class AddCardDetails extends Component {
       latest_payment: this.state.amount,
       latest_payment_date: this.state.currentDate,
       current_balance: amountcount + current_balancecount,
+      account_id: this.state.account_id,
+      account_name: this.state.account_name,
+      card_id:this.state.card_id
+
     };
 
     console.log("classApplications Details: ", studentDetails);
 
     axios
-      .put(`${APIURL}/TopupPayment/update-Topup/${TopUpID}`, studentDetails)
+      .post(`${APIURL}/TopupPayment//create-TopList`, studentDetails)
       .then((res) => {
         console.log("res", res);
         if (res.data.code === 200) {
           console.log("res.data.code", res.data.code);
           alert("Date Inserted !");
-          window.location.reload();
+          window.location = "/viewBalnce";
         } else {
           alert(res.data.message);
           window.location.reload();
@@ -77,166 +85,205 @@ class AddCardDetails extends Component {
       });
   }
 
-  componentDidMount() {
-    axios
-      .get(`${APIURL}/TopupPayment/getAllTopListbyID/${TopUpID}`)
+  // componentDidMount() {
+  //   axios
+  //     .get(`${APIURL}/TopupPayment/getAllTopListbyID/${TopUpID}`)
 
-      .then((response) => {
-        this.setState({ TopUp: response.data.data });
-        console.log("response ", this.state.TopUp);
+  //     .then((response) => {
+  //       this.setState({ TopUp: response.data.data });
+  //       console.log("response ", this.state.TopUp);
 
-        this.setState({ latest_payment: this.state.TopUp.latest_payment });
-        this.setState({
-          latest_payment_date: this.state.TopUp.latest_payment_date,
-        });
-        this.setState({ current_balance: this.state.TopUp.current_balance });
-      });
-  }
+  //       // this.setState({ latest_payment: this.state.TopUp.latest_payment });
+  //       this.setState({
+  //         latest_payment_date: this.state.TopUp.latest_payment_date,
+  //       });
+  //       this.setState({ current_balance: this.state.TopUp.current_balance });
+  //     });
+  // }
 
   render() {
     return (
       <>
-        <div
-          className="add_carddetails_container"
-          style={{
-            // marginLeft: "400px",
-            width: "100%",
-          }}
-        >
-          <form
-            style={{
-              width: "100%",
-              height: "500px",
-            }}
-          >
-            <h3
-              style={{
-                marginLeft: "120px",
-              }}
-            >
-              Top up your VISA / MASTER Card
-            </h3>
-            <div
-              className="card_number"
-              style={{
-                marginTop: "30px",
-              }}
-            >
-              <label>Card Number</label>
-              <input
-                className="input_class_number"
-                type="number"
-                name="cardnumber"
-                placeholder="Add card Number"
-                value={this.state.cardnumber}
-                onChange={this.onChange}
-                required
-                style={{
-                  width: "450px",
-                  marginLeft: "10px",
-                }}
-              ></input>
+        <div className="form_container">
+          <div className="main-block">
+            <div className="left-part">
+              {/* <i className="fas fa-envelope" />
+              <i className="fas fa-at" />
+              <i className="fas fa-mail-bulk" /> */}
             </div>
-
             <div
-              className="card_number"
               style={{
-                marginTop: "10px",
-              }}
-            >
-              <label>Card Name</label>
-              <input
-                className="input_card_name"
-                type="text"
-                name="cardname"
-                placeholder="Add card Name"
-                required
-                style={{
-                  width: "450px",
-                  marginLeft: "25px",
-                }}
-                value={this.state.cardname}
-                onChange={this.onChange}
-              ></input>
-            </div>
+                height: "50%",
+                display: "flex",
+                flexDirection: "column",
 
-            <div
-              className="card_number"
-              style={{
-                marginTop: "10px",
+                justifyContent: "flex-start",
+                padding: "20px",
               }}
-            >
-              <label>Amount</label>
-              <input
-                className="input_card_name"
-                type="number"
-                name="amount"
-                placeholder="Enter amount"
-                required
-                style={{
-                  width: "450px",
-                  marginLeft: "45px",
-                }}
-                value={this.state.amount}
-                onChange={this.onChange}
-              ></input>
-            </div>
-
-            <div
-              className="card_number"
-              style={{
-                marginTop: "10px",
-              }}
-            >
-              <label>Expire date</label>
-              <input
-                className="input_card_name"
-                type="date"
-                name="expdate"
-                placeholder="Enter amount"
-                required
-                style={{
-                  width: "200px",
-                  marginLeft: "25px",
-                }}
-                value={this.state.expdate}
-                onChange={this.onChange}
-              ></input>
-
-              <label
-                style={{
-                  marginLeft: "10px",
-                }}
-              >
-                CVV
-              </label>
-              <input
-                className="input_card_name"
-                type="number"
-                name="cvv"
-                placeholder="Enter amount"
-                required
-                style={{
-                  width: "200px",
-                  marginLeft: "10px",
-                }}
-                value={this.state.cvv}
-                onChange={this.onChange}
-              ></input>
-            </div>
-
-            <button
-              style={{
-                width: "450px",
-                marginLeft: "100px",
-                marginTop: "10px",
-              }}
-              onClick={this.onSubmit}
             >
               {" "}
-              Top up
-            </button>
-          </form>
+              <h3
+                style={{
+                  // marginLeft: "230px",
+                  color: "blue",
+                }}
+              >
+                Top Up With Your Visa/ Master
+              </h3>
+              <form
+                onSubmit={this.onSubmit}
+                style={{
+                  border: "2px solid grey",
+                  borderRadius: "5px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  width: "100%",
+                  paddingBottom: "30px",
+                  paddingLeft: "20px",
+                  paddingRight: "20px",
+                }}
+              >
+                <div className="info" style={{ width: "" }}>
+                  <div
+                    style={{
+                      marginTop: "30px",
+                      // marginLeft: "50px"
+                    }}
+                    className="input_div_iresha"
+                  >
+                    <lable
+                      style={
+                        {
+                          // marginLeft: "20px",
+                        }
+                      }
+                    >
+                      Enter Account Id
+                    </lable>
+                    <input
+                      className="account_id"
+                      type="text"
+                      name="account_id"
+                      value={this.state.account_id}
+                      onChange={this.onChange}
+                      style={{
+                        // marginLeft: "70px",
+                        width: "900px",
+                        height: "30px",
+                        borderRadius: "5px",
+                      }}
+                    />
+                  </div>
+                  <div
+                    style={{ marginTop: "20px" }}
+                    className="input_div_iresha"
+                  >
+                    <label style={{}}>Enter Account Name</label>
+                    <input
+                      type="text"
+                      name="account_name"
+                      value={this.state.account_name}
+                      onChange={this.onChange}
+                      style={{
+                        width: "900px",
+                        height: "30px",
+                        borderRadius: "5px",
+                      }}
+                    />
+                  </div>
+
+                  <div
+                    style={{ marginTop: "20px" }}
+                    className="input_div_iresha"
+                  >
+                    <label style={{}}>Card Id</label>
+                    <input
+                      type="text"
+                      name="card_id"
+                      value={this.state.card_id}
+                      onChange={this.onChange}
+                      style={{
+                        width: "900px",
+                        height: "30px",
+                        borderRadius: "5px",
+                      }}
+                    />
+                  </div>
+
+                  <div
+                    style={{ marginTop: "20px" }}
+                    className="input_div_iresha"
+                  >
+                    <label style={{}}>Enter Latest Payment amount</label>
+                    <input
+                      type="text"
+                      name="latest_payment"
+                      value={this.state.latest_payment}
+                      onChange={this.onChange}
+                      style={{
+                        width: "900px",
+                        height: "30px",
+                        borderRadius: "5px",
+                      }}
+                    />
+                  </div>
+                  <div
+                    style={{ marginTop: "20px" }}
+                    className="input_div_iresha"
+                  >
+                    <label style={{}}>Enter latest payment date</label>
+                    <input
+                      type="date"
+                      name="latest_payment_date"
+                      value={this.state.latest_payment_date}
+                      onChange={this.onChange}
+                      style={{
+                        width: "900px",
+                        height: "30px",
+                        borderRadius: "5px",
+                      }}
+                    />
+                  </div>
+
+                  <div
+                    style={{ marginTop: "20px" }}
+                    className="input_div_iresha"
+                  >
+                    <label style={{}}>Enter Current Balance</label>
+                    <input
+                      type="text"
+                      name="current_balance"
+                      value={this.state.current_balance}
+                      onChange={this.onChange}
+                      style={{
+                        width: "900px",
+                        height: "30px",
+                        borderRadius: "5px",
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  href="/"
+                  style={{
+                    width: "900px",
+                    marginTop: "20px",
+                    // marginLeft: "70px",
+                    backgroundColor: "#10a8a9",
+                    color: "white",
+                    height: "35px",
+                    borderRadius: "5px",
+                  }}
+                >
+                  Top Up
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </>
     );

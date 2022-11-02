@@ -6,7 +6,7 @@ import { color } from "@mui/system";
 
 const TopUpID = "615b62836b077090fc9c11e9";
 
-class AddStudent extends Component {
+class addTimeTable extends Component {
   constructor(props) {
     super(props);
     var today = new Date(),
@@ -97,7 +97,7 @@ class AddStudent extends Component {
               <form
                 onSubmit={this.onSubmit}
                 style={{
-                  border: "1px solid grey",
+                  border: "2px solid grey",
                   borderRadius: "5px",
                   display: "flex",
                   flexDirection: "column",
@@ -135,7 +135,7 @@ class AddStudent extends Component {
                       placeholder="Enter route"
                       style={{
                         // marginLeft: "70px",
-                        width: "700px",
+                        width: "900px",
                         height: "30px",
                         borderRadius: "5px",
                       }}
@@ -153,7 +153,7 @@ class AddStudent extends Component {
                       onChange={this.onChange}
                       placeholder="Enter route Path"
                       style={{
-                        width: "700px",
+                        width: "900px",
                         height: "30px",
                         borderRadius: "5px",
                       }}
@@ -172,7 +172,7 @@ class AddStudent extends Component {
                       onChange={this.onChange}
                       placeholder="Enter Time and Date"
                       style={{
-                        width: "700px",
+                        width: "900px",
                         height: "30px",
                         borderRadius: "5px",
                       }}
@@ -191,7 +191,7 @@ class AddStudent extends Component {
                       onChange={this.onChange}
                       placeholder="Start"
                       style={{
-                        width: "700px",
+                        width: "900px",
                         height: "30px",
                         borderRadius: "5px",
                       }}
@@ -209,7 +209,7 @@ class AddStudent extends Component {
                       onChange={this.onChange}
                       placeholder="End"
                       style={{
-                        width: "700px",
+                        width: "900px",
                         height: "30px",
                         borderRadius: "5px",
                       }}
@@ -221,7 +221,7 @@ class AddStudent extends Component {
                   type="submit"
                   href="/"
                   style={{
-                    width: "700px",
+                    width: "900px",
                     marginTop: "20px",
                     // marginLeft: "70px",
                     backgroundColor: "#10a8a9",
@@ -241,4 +241,4 @@ class AddStudent extends Component {
   }
 }
 
-export default AddStudent;
+export default addTimeTable;
