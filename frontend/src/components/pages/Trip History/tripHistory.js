@@ -91,7 +91,7 @@ class tripHistory extends Component {
           <div
             className="manager_portal_container"
             style={{
-              width: "100%",
+              width: "1000px",
               backgroundColor: "white",
               borderColor: "1px solid black",
               borderRadius: "10px",

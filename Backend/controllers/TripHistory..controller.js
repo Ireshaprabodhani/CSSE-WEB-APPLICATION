@@ -2,6 +2,7 @@ const TripHistory = require("../models/TripHistory.model");
 const messages = require("../messages/messages");
 
 const TopListController = {
+  // create trip history
   createTripHistory: async (req, res) => {
     try {
       const {
@@ -107,6 +108,8 @@ const TopListController = {
   //   }
   // },
 
+
+  // get trip history details using date
   getTripHistoryDetailsByDate: async (req, res) => {
     try {
       if (req.params && req.params.id) {
@@ -132,6 +135,8 @@ const TopListController = {
     }
   },
 
+
+  // get all trip history content
   getAllTripHistory: async (req, res) => {
     await TripHistory.find()
       .then((data) => {

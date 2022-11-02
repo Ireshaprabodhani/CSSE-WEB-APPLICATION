@@ -54,15 +54,18 @@ class ViewBalance extends Component {
     const current_balancecount = Number(this.state.amount);
 
     const studentDetails = {
-      latest_payment: this.state.amount,
+      latest_payment: this.state.latest_payment,
       latest_payment_date: this.state.currentDate,
       current_balance: amountcount + current_balancecount,
+      account_id: this.state.account_id,
+      account_name: this.state.account_name,
+      card_id: this.state.card_id,
     };
 
     console.log("classApplications Details: ", studentDetails);
 
     axios
-      .put(`${APIURL}/TopupPayment/update-Topup/${TopUpID}`, studentDetails)
+      .post(`${APIURL}/TopupPayment/create-TopList`, studentDetails)
       .then((res) => {
         console.log("res", res);
         if (res.data.code === 200) {
@@ -78,48 +81,79 @@ class ViewBalance extends Component {
 
   componentDidMount() {
     axios
-      .get(`${APIURL}/TopupPayment/getAllTopListbyID/${TopUpID}`)
+      .get(`${APIURL}/TopupPayment/getAllTopUp`)
 
       .then((response) => {
         this.setState({ TopUp: response.data.data });
-        console.log("response ", this.state.TopUp);
-
-        this.setState({ latest_payment: this.state.TopUp.latest_payment });
-        this.setState({
-          latest_payment_date: this.state.TopUp.latest_payment_date,
-        });
-        this.setState({ current_balance: this.state.TopUp.current_balance });
+        console.log("TopUp ", this.state.TopUp);
       });
   }
 
   render() {
     return (
       <>
-        <Card
-          className="add_carddetails_container"
-          style={{
-            // marginLeft: "400px",
-            width: "70%",
-            height: "70%",
-            backgroundColor: "white",
-          }}
-        >
-          <div className="view_balance_title">
-            <h3>View Balance</h3>
+        <div>
+          <div
+            className="manager_portal_container"
+            style={{
+              width: "100%",
+              backgroundColor: "white",
+              borderColor: "1px solid black",
+              borderRadius: "10px",
+              paddingLeft: "20px",
+              paddingRight: "20px",
+            }}
+          >
+            <div></div>
+            <br></br>
+            <div
+              className="inside_table_first_col"
+              style={{
+                border: "1px solid grey",
+                borderRadius: "",
+                padding: "20px",
+              }}
+            ></div>
+            <table
+              class="table"
+              style={{
+                // marginTop: "40px",
+                border: "1px solid grey",
+                borderRadius: "10px",
+              }}
+            >
+              <thead
+                style={{
+                  borderRadius: "10px",
+                }}
+              >
+                <tr style={{ backgroundColor: "#10a8a9" }}>
+                  <th scope="col" style={{ color: "#fff" }}>
+                    Latest Payment Amount
+                  </th>
+                  <th scope="col" style={{ color: "#fff" }}>
+                    Latest Payment Date
+                  </th>
+                  <th scope="col" style={{ color: "#fff" }}>
+                    Current Balance
+                  </th>
+                  {/* <th scope="col" style={{ color: "#fff" }}></th>
+                  <th scope="col" style={{ color: "#fff" }}></th> */}
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.TopUp.length > 0 &&
+                  this.state.TopUp.map((item, index) => (
+                    <tr key={item.latest_payment}>
+                      <th>{item.latest_payment}</th>
+                      <td>{item.latest_payment_date}</td>
+                      <td>{item.current_balance}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
           </div>
-          <div className="latest_payment">
-            <label>Latest Payment :</label>
-            <span>{this.state.latest_payment}</span>
-          </div>
-          <div className="latest_payment">
-            <label>Latest Payment Date :</label>
-            <span>{this.state.latest_payment_date}</span>
-          </div>
-          <div className="latest_payment">
-            <label>Current Balance :</label>
-            <span>{this.state.current_balance}</span>
-          </div>
-        </Card>
+        </div>
       </>
     );
   }

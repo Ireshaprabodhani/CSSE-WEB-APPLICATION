@@ -15,6 +15,8 @@ import NavBarClient from "./components/pages/NavBarClient/NavBarClient";
 import ViewBalance from "./components/pages/viewBalance/ViewBalance";
 import ViewTimeTableCl from "./components/pages/viewTimetableClient/ViewTimeTableCl";
 import AddTripHistory from "./components/pages/Trip History/AddTripHistory";
+import AddRoutes from "./components/pages/AddRoutes/AddRoutes"
+import ViewRoutes from "./components/pages/ViewRoutes/ViewRoutes"
 
 function App() {
   const [isActive, setActive] = useState(false);
@@ -66,6 +68,9 @@ function App() {
                      <Route path="/PublicTransportEdit" exact component={PublicTransportEdit} /> */}
                   <Route path="/addtimetable" exact component={addTimeTable} />
                   <Route path="/viewBalnce" exact component={ViewBalance} />
+                  <Route path="/createRoute" exact component={AddRoutes} />
+                  <Route path="/viewRoutes" exact component={ViewRoutes} />
+
                   <Route
                     path="/viewClientTb"
                     exact

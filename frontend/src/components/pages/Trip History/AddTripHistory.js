@@ -90,7 +90,7 @@ class AddStudent extends Component {
                 flexDirection: "column",
 
                 justifyContent: "flex-start",
-                padding: "20px",
+                padding: "15px",
               }}
             >
               {" "}
@@ -100,7 +100,7 @@ class AddStudent extends Component {
                   color: "blue",
                 }}
               >
-                Add Trip History
+                Add Trip 
               </h3>
               <form
                 onSubmit={this.onSubmit}
@@ -150,7 +150,7 @@ class AddStudent extends Component {
                     />
                   </div>
                   <div
-                    style={{ marginTop: "20px" }}
+                    style={{ marginTop: "10px" }}
                     className="input_div_iresha"
                   >
                     <label style={{}}>Enter Date</label>
@@ -169,7 +169,7 @@ class AddStudent extends Component {
                   </div>
 
                   <div
-                    style={{ marginTop: "20px" }}
+                    style={{ marginTop: "10px" }}
                     className="input_div_iresha"
                   >
                     <label style={{}}>Enter Route</label>
@@ -188,7 +188,7 @@ class AddStudent extends Component {
                   </div>
 
                   <div
-                    style={{ marginTop: "20px" }}
+                    style={{ marginTop: "10px" }}
                     className="input_div_iresha"
                   >
                     <label style={{}}>Enter Total fee</label>
@@ -206,7 +206,7 @@ class AddStudent extends Component {
                     />
                   </div>
                   <div
-                    style={{ marginTop: "20px" }}
+                    style={{ marginTop: "10px" }}
                     className="input_div_iresha"
                   >
                     <label style={{}}>Enter Top up at the stations</label>
@@ -225,7 +225,7 @@ class AddStudent extends Component {
                   </div>
 
                   <div
-                    style={{ marginTop: "20px" }}
+                    style={{ marginTop: "10px" }}
                     className="input_div_iresha"
                   >
                     <label style={{}}>Enter Number of stops</label>
@@ -243,7 +243,7 @@ class AddStudent extends Component {
                     />
                   </div>
                   <div
-                    style={{ marginTop: "20px" }}
+                    style={{ marginTop: "10px" }}
                     className="input_div_iresha"
                   >
                     <label style={{}}>Enter credit deduction status</label>

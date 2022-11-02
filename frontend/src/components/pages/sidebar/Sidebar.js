@@ -7,13 +7,11 @@ export default function Sidebar(props) {
   return (
     <div>
       <nav id="sidebar" className={props.isActive ? "active" : null}>
-        <ul className="collapse list-unstyled font-color" id = "travel_ticket">
+        <ul className="collapse list-unstyled font-color" id="travel_ticket">
           <li>
-          
-              <i class="fas fa-dot-circle"></i>
-             Travel Ticket
+            <i class="fas fa-dot-circle"></i>
+            Travel Ticket
           </li>
-         
         </ul>
         <ul className="list-unstyled components font-color">
           <li>
@@ -117,15 +115,15 @@ export default function Sidebar(props) {
             </a>
             <ul className="collapse list-unstyled font-color" id="surgeons">
               <li>
-                <Link to="./new-design" className="font-color">
+                <Link to="./createRoute" className="font-color">
                   <i class="fas fa-dot-circle"></i>
                   Add Routes
                 </Link>
               </li>
               <li>
-                <Link to="./surgeons" className="font-color">
+                <Link to="./viewRoutes" className="font-color">
                   <i class="fas fa-dot-circle"></i>
-                  Update Routes
+                  View Routes
                 </Link>
               </li>
             </ul>

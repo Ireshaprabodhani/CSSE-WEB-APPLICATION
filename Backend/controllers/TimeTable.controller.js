@@ -2,18 +2,10 @@ const TimeTable = require("../models/TimeTable.model");
 const messages = require("../messages/messages");
 
 const TopListController = {
+  // create time table
   createTimeTable: async (req, res) => {
-
     try {
-      const {
-        route,
-        route_path,
-        dateAndtime,
-        start,
-        destination,
-
-      } = req.body;
-
+      const { route, route_path, dateAndtime, start, destination } = req.body;
 
       const newTimeTable = new TimeTable({
         route,
@@ -59,6 +51,7 @@ const TopListController = {
   //     });
   // },
 
+  // get all time table content
   getAllTimeTable: async (req, res) => {
     await TimeTable.find()
       .then((data) => {
@@ -76,10 +69,13 @@ const TopListController = {
       });
   },
 
+  // get time table content using route
   getTimeTableByRoute: async (req, res) => {
     try {
       if (req.params && req.params.id) {
-        const TripHistoryDetails = await TimeTable.find({route: req.params.id });
+        const TripHistoryDetails = await TimeTable.find({
+          route: req.params.id,
+        });
 
         return res.status(200).json({
           code: messages.SuccessCode,
@@ -99,15 +95,12 @@ const TopListController = {
     }
   },
 
+  // route details delete using by route id
   DeleteByID: async (req, res) => {
     try {
       if (req.params && req.params.id) {
         console.log("Stage 01");
-        const {
-          isOpen
-
-        } = req.body;
-
+        const { isOpen } = req.body;
 
         const Job = await TimeTable.findByIdAndDelete(req.params.id);
 
@@ -188,6 +181,6 @@ const TopListController = {
   //     });
   //   }
   // },
-}
+};
 
 module.exports = TopListController;

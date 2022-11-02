@@ -1,10 +1,10 @@
-import React, { Component , useState} from "react";
-import "./main.css";
+import React, { Component, useState } from "react";
+// import "./main.css";
 import axios from "axios";
 import { APIURL } from "../../API/environment";
 import { Button, Link } from "@mui/material";
 
-class AddStudent extends Component {
+class ViewRoutes extends Component {
   constructor(props) {
     super(props);
 
@@ -12,17 +12,15 @@ class AddStudent extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
   state = {
-    cardtype: "Credit",
-    cardnumber: "",
-    cardname: "",
-    expdate: "",
-    cvv: "",
-    amount: "",
-    timetable: [],
-    route: "",
+    routeId: "",
+    arrival: "",
+    departure: "",
+    fair: "",
+    route: [],
+   
   };
   onDelete(event, ID) {
-    axios.delete(`${APIURL}/TimeTable/DeleteByID/${ID}`).then((res) => {
+    axios.delete(`${APIURL}/Route/DeleteByID/${ID}`).then((res) => {
       console.log("res", res);
       if (res.data.code === 200) {
         console.log("res.data.code", res.data.code);
@@ -46,37 +44,26 @@ class AddStudent extends Component {
   onSubmit(event) {
     event.preventDefault();
 
-    let studentDetails = {
+    let routeDetails = {
       route: this.state.route,
     };
 
-    console.log("classApplications Details: ", studentDetails);
+    console.log("classApplications Details: ", routeDetails);
 
-    axios
-      .get(`${APIURL}/TimeTable/getDetailsByRoute/${this.state.route}`)
-      .then((response) => {
-        this.setState({ timetable: response.data.data });
-        console.log("timetable ", this.state.timetable);
-      });
-    
+ 
   }
 
   componentDidMount() {
     axios
-      .get(`${APIURL}/TimeTable/GetAllTimeTable`)
+      .get(`${APIURL}/Route/getAllRoutes`)
 
       .then((response) => {
-        this.setState({ timetable: response.data.data });
-        console.log("timetable ", this.state.timetable);
+        this.setState({ route: response.data.data });
+        console.log("route ", this.state.route);
       });
   }
 
- 
-    
-
   render() {
-
-  
     return (
       <>
         <div>
@@ -99,9 +86,8 @@ class AddStudent extends Component {
                 Selected route :{" "}
               </span>
               <span className="">{this.state.route} </span> */}
-
               <input
-                type="date"
+                type="text"
                 id="fname"
                 placeholder="Enter route"
                 className=""
@@ -111,12 +97,15 @@ class AddStudent extends Component {
                   width: "300px",
                   borderRadius: "5px",
                 }}
-                name="dateAndtime"
-                value={this.state.dateAndtime}
+                name="routeId"
+                value={this.state.routeId}
                 onChange={this.onChange}
                 required
               />
-             
+              <span style={{ marginLeft: "20px" }}>
+                Route ID : {this.state.routeId}
+              </span>
+
               <button className="btn_report" style={{ marginLeft: "400px" }}>
                 Generate Report
               </button>
@@ -136,7 +125,7 @@ class AddStudent extends Component {
                 placeholder="&#9906; search"
                 style={{ borderRadius: "5px" }}
               />
-              <a href="/AddTimeTable">
+              <a href="/createRoute">
                 <button
                   className="add_new"
                   type="button"
@@ -161,31 +150,32 @@ class AddStudent extends Component {
               >
                 <tr style={{ backgroundColor: "#10a8a9" }}>
                   <th scope="col" style={{ color: "#fff" }}>
-                    Date And Time
+                    Route ID
                   </th>
                   <th scope="col" style={{ color: "#fff" }}>
-                    Start
+                    Arrival
                   </th>
                   <th scope="col" style={{ color: "#fff" }}>
-                    Destination
+                    Departure
+                  </th>
+                  <th scope="col" style={{ color: "#fff" }}>
+                    Fair
                   </th>
                   <th scope="col" style={{ color: "#fff" }}></th>
                   <th scope="col" style={{ color: "#fff" }}></th>
                 </tr>
               </thead>
               <tbody>
-                {this.state.timetable.length > 0 &&
-                  this.state.timetable.map((item, index) => (
-                    <tr key={item.route_path}>
-                      <th>{item.dateAndtime}</th>
-                      <td>{item.start}</td>
-                      <td> {item.destination}</td>
+                {this.state.route.length > 0 &&
+                  this.state.route.map((item, index) => (
+                    <tr key={item.routeId}>
+                      <th>{item.routeId}</th>
+                      <td>{item.arrival}</td>
+                      <td> {item.departure}</td>
+                      <td> {item.fair}</td>
 
                       <td style={{ color: "white" }}>
-                        <Link
-                          to={`./PublicTransportEdit/${item._id}`}
-                          className=""
-                        >
+                        <Link to={`./update/${item._id}`} className="">
                           Edit
                         </Link>
                       </td>
@@ -208,4 +198,4 @@ class AddStudent extends Component {
   }
 }
 
-export default AddStudent;
+export default ViewRoutes;

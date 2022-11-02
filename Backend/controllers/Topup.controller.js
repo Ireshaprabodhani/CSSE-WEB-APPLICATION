@@ -2,8 +2,8 @@ const TopList = require("../models/Topup.model");
 const messages = require("../messages/messages");
 
 const TopListController = {
+  // Create Top Up list (insert)
   createTopList: async (req, res) => {
-
     try {
       const {
         account_id,
@@ -12,9 +12,7 @@ const TopListController = {
         latest_payment,
         latest_payment_date,
         current_balance,
-
       } = req.body;
-
 
       const newTopList = new TopList({
         account_id,
@@ -106,6 +104,8 @@ const TopListController = {
   //   }
   // },
 
+
+  // get top up details using id
   getTopUpDetailsByJobID: async (req, res) => {
     try {
       if (req.params && req.params.id) {
@@ -129,16 +129,31 @@ const TopListController = {
     }
   },
 
+  // Get all top up content
+  getAllTopUp: async (req, res) => {
+    await TopList.find()
+      .then((data) => {
+        const count = data.length;
+        res.status(200).json({
+          code: 200,
+          success: true,
+          status: "OK",
+          data: data,
+          message: "All Top Up are Received " + count,
+        });
+      })
+      .catch((error) => {
+        res.status(500).send({ error: error.message });
+      });
+  },
+ 
+  // Update top up details
   UpdateTopPaymentByID: async (req, res) => {
     try {
       if (req.params && req.params.id) {
         console.log("Stage 01");
-        const {
-          latest_payment,
-          latest_payment_date,
-          current_balance,
-
-        } = req.body;
+        const { latest_payment, latest_payment_date, current_balance } =
+          req.body;
 
         await TopList.findByIdAndUpdate(req.params.id, {
           latest_payment,
@@ -165,6 +180,6 @@ const TopListController = {
       });
     }
   },
-}
+};
 
 module.exports = TopListController;

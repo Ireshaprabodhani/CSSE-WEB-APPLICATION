@@ -1,17 +1,12 @@
-import React from 'react'
-import './addcardDetails.css'
-import axios from 'axios'
-import {APIURL} from '../../API/environment'
-import { Component } from 'react'
-import { Button } from '@mui/material'
-import { width } from '@mui/system'
-import NavBarClient from '../NavBarClient/NavBarClient'
-import Sidebar from '../sidebar/Sidebar'
+import React, { Component } from "react";
+// import "./main.css";
+import axios from "axios";
+import { APIURL } from "../../API/environment";
+import { color } from "@mui/system";
 
 const TopUpID = "615b62836b077090fc9c11e9";
 
-
-class AddCardDetails extends Component {
+class addRoutes extends Component {
   constructor(props) {
     super(props);
     var today = new Date(),
@@ -23,21 +18,11 @@ class AddCardDetails extends Component {
         today.getDate();
 
     this.state = {
-      currentDate: date,
-      TopUp: [],
-      cardtype: "Credit",
-      cardnumber: "",
-      cardname: "",
-      expdate: "",
-      cvv: "",
-      amount: "",
-      latest_payment: "",
-      latest_payment_date: "",
-      current_balance: "",
-      account_id: "",
-      account_name: "",
-      card_id: "",
-      
+      routeId: "",
+      arrival: "",
+      departure: "",
+      fair: "",
+    
     };
 
     this.onChange = this.onChange.bind(this);
@@ -55,51 +40,28 @@ class AddCardDetails extends Component {
   onSubmit(event) {
     event.preventDefault();
 
-    const amountcount = Number(this.state.current_balance);
-    const current_balancecount = Number(this.state.amount);
-
-    const studentDetails = {
-      latest_payment: this.state.amount,
-      latest_payment_date: this.state.currentDate,
-      current_balance: amountcount + current_balancecount,
-      account_id: this.state.account_id,
-      account_name: this.state.account_name,
-      card_id:this.state.card_id
-
+    const RouteDetails = {
+      routeId: this.state.routeId,
+      arrival: this.state.arrival,
+      departure: this.state.departure,
+      fair: this.state.fair,
+    
     };
 
-    console.log("classApplications Details: ", studentDetails);
+    console.log("Route Details: ", RouteDetails);
 
-    axios
-      .post(`${APIURL}/TopupPayment/create-TopList`, studentDetails)
-      .then((res) => {
-        console.log("res", res);
-        if (res.data.code === 200) {
-          console.log("res.data.code", res.data.code);
-          alert("Date Inserted !");
-          window.location = "/viewBalnce";
-        } else {
-          alert(res.data.message);
-          window.location.reload();
-        }
-      });
+    axios.post(`${APIURL}/Route/create-route`, RouteDetails).then((res) => {
+      console.log("res", res);
+      if (res.data.code === 200) {
+        console.log("res.data.code", res.data.code);
+        alert("Date Inserted !");
+        window.location = "/viewRoutes";
+      } else {
+        alert(res.data.message);
+        window.location.reload();
+      }
+    });
   }
-
-  // componentDidMount() {
-  //   axios
-  //     .get(`${APIURL}/TopupPayment/getAllTopListbyID/${TopUpID}`)
-
-  //     .then((response) => {
-  //       this.setState({ TopUp: response.data.data });
-  //       console.log("response ", this.state.TopUp);
-
-  //       // this.setState({ latest_payment: this.state.TopUp.latest_payment });
-  //       this.setState({
-  //         latest_payment_date: this.state.TopUp.latest_payment_date,
-  //       });
-  //       this.setState({ current_balance: this.state.TopUp.current_balance });
-  //     });
-  // }
 
   render() {
     return (
@@ -128,7 +90,7 @@ class AddCardDetails extends Component {
                   color: "blue",
                 }}
               >
-                Top Up With Your Visa/ Master
+                Add Routes
               </h3>
               <form
                 onSubmit={this.onSubmit}
@@ -160,14 +122,15 @@ class AddCardDetails extends Component {
                         }
                       }
                     >
-                      Enter Account Id
+                      Enter Route ID
                     </lable>
                     <input
-                      className="account_id"
+                      className="fname"
                       type="text"
-                      name="account_id"
-                      value={this.state.account_id}
+                      name="routeId"
+                      value={this.state.routeId}
                       onChange={this.onChange}
+                      placeholder = "Route ID"
                       style={{
                         // marginLeft: "70px",
                         width: "900px",
@@ -180,12 +143,13 @@ class AddCardDetails extends Component {
                     style={{ marginTop: "20px" }}
                     className="input_div_iresha"
                   >
-                    <label style={{}}>Enter Account Name</label>
+                    <label style={{}}>Enter Arrival</label>
                     <input
                       type="text"
-                      name="account_name"
-                      value={this.state.account_name}
+                      name="arrival"
+                      value={this.state.arrival}
                       onChange={this.onChange}
+                      placeholder = "arrival"
                       style={{
                         width: "900px",
                         height: "30px",
@@ -198,12 +162,13 @@ class AddCardDetails extends Component {
                     style={{ marginTop: "20px" }}
                     className="input_div_iresha"
                   >
-                    <label style={{}}>Card Id</label>
+                    <label style={{}}>Enter Departure</label>
                     <input
                       type="text"
-                      name="card_id"
-                      value={this.state.card_id}
+                      name="departure"
+                      value={this.state.departure}
                       onChange={this.onChange}
+                      placeholder = "Departure"
                       style={{
                         width: "900px",
                         height: "30px",
@@ -216,12 +181,13 @@ class AddCardDetails extends Component {
                     style={{ marginTop: "20px" }}
                     className="input_div_iresha"
                   >
-                    <label style={{}}>Enter Latest Payment amount</label>
+                    <label style={{}}>Enter Fair</label>
                     <input
                       type="text"
-                      name="latest_payment"
-                      value={this.state.latest_payment}
+                      name="fair"
+                      value={this.state.fair}
                       onChange={this.onChange}
+                      placeholder = "Fair"
                       style={{
                         width: "900px",
                         height: "30px",
@@ -229,41 +195,7 @@ class AddCardDetails extends Component {
                       }}
                     />
                   </div>
-                  <div
-                    style={{ marginTop: "20px" }}
-                    className="input_div_iresha"
-                  >
-                    <label style={{}}>Enter latest payment date</label>
-                    <input
-                      type="date"
-                      name="latest_payment_date"
-                      value={this.state.latest_payment_date}
-                      onChange={this.onChange}
-                      style={{
-                        width: "900px",
-                        height: "30px",
-                        borderRadius: "5px",
-                      }}
-                    />
-                  </div>
-
-                  <div
-                    style={{ marginTop: "20px" }}
-                    className="input_div_iresha"
-                  >
-                    <label style={{}}>Enter Current Balance</label>
-                    <input
-                      type="text"
-                      name="current_balance"
-                      value={this.state.current_balance}
-                      onChange={this.onChange}
-                      style={{
-                        width: "900px",
-                        height: "30px",
-                        borderRadius: "5px",
-                      }}
-                    />
-                  </div>
+                
                 </div>
 
                 <button
@@ -279,7 +211,7 @@ class AddCardDetails extends Component {
                     borderRadius: "5px",
                   }}
                 >
-                  Top Up
+                  Submit
                 </button>
               </form>
             </div>
@@ -289,4 +221,5 @@ class AddCardDetails extends Component {
     );
   }
 }
-export default AddCardDetails;
+
+export default addRoutes;
